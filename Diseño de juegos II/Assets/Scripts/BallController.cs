@@ -10,12 +10,17 @@ public class BallController : MonoBehaviour
 
         private bool ignoreNextcollision;
 
-        private void OncollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision collision)
         {
+
+            
+
             if(ignoreNextcollision)
             {
                 return;
             }
+
+            GameManager.singleton.AddScore(1);
 
             rb.velocity=Vector3.zero;
             rb.AddForce(Vector3.up*impulseForce, ForceMode.Impulse);
